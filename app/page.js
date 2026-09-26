@@ -42,7 +42,7 @@ export default function Home(){
  <input type="number" inputMode="numeric" placeholder="金額" value={form.amount} onChange={e=>setForm({...form,amount:e.target.value})}/>
  <button>＋ 登録する</button></form></section>
  <section className="photo"><button onClick={()=>alert("次の段階でレシートOCRを接続します")}>📷 レシート</button><button onClick={()=>alert("次の段階で請求書OCRを接続します")}>📄 請求書</button></section>
- <section className="panel"><h2>🔗 弥生会計連携</h2><p>この管理画面の取引を、弥生会計に取り込むための仕訳CSVに変換します。</p><button onClick={exportYayoi}>📤 弥生会計用CSVを作る</button></section>
+ <section className="yayoiBlock"><div><span>📘</span><h2>弥生会計</h2><p>売上・仕入・経費・未払いを仕訳データにまとめます</p></div><button onClick={exportYayoi}>📤 弥生会計用CSVを作る</button></section>
  <section className="panel"><h2>📋 取引一覧</h2><div className="table"><div className="tr head"><b>日付</b><b>内容</b><b>区分</b><b>金額</b></div>{rows.map(r=><div className="tr" key={r.id}><span>{r.date.slice(5).replace("-","/")}</span><span>{r.memo}</span><strong className={colors[r.type]}>{r.type}</strong><b>¥{Number(r.amount).toLocaleString()}</b></div>)}</div></section>
  <footer>Next.js / Google Cloud / 弥生会計CSV対応</footer></main>
 }
